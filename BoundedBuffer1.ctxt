@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=BoundedBuffer1
+comment0.text=\n\ \ BoundedBuffer1\n\ \ \n\n\ @author\ (Pete\ Fennell)\n\ @version\ (04192019)\n
+comment1.params=n
+comment1.target=BoundedBuffer1(int)
+comment1.text=Constructor\:\ boundedbuffer\ of\ max\ size\ n
+comment2.params=v
+comment2.target=void\ produce(java.lang.Object)
+comment2.text=Put\ object\ into\ the\ bounded\ buffer
+comment3.params=
+comment3.target=java.lang.Object\ consume()
+comment3.text=Remove\ first\ object\ from\ bounded\ buffer\ and\ return\ it.
+numComments=4

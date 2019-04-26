@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=ClinetMonitor
+comment1.params=
+comment1.target=ClinetMonitor()
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ ClinetMonitor\n
+comment2.params=
+comment2.target=java.lang.String\ setSleep()
+comment2.text=\n\ On\ the\ client\ (Consumers)\ side\ there\ is\ some\ a\ ConsumerMonitor,\ which\:\n\ number\ of\ the\ clients,\ producers,\ the\ size\ of\ the\ buffer\ and\ some\ modes\ of\ the\ system;\n\ creates\ a\ socket\ connection\ with\ the\ ProducerServer\ to\ exchange\ some\ needed\ information;\n\ generates\ consumer\ threads;\n\ provides\ some\ results\ to\ the\ user.\ \ \n
+comment3.params=
+comment3.target=java.lang.String\ setCNum()
+comment4.params=
+comment4.target=java.lang.String\ setPNum()
+comment5.params=
+comment5.target=java.lang.String\ setBSize()
+comment6.params=args
+comment6.target=void\ main(java.lang.String[])
+numComments=7

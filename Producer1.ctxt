@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Producer1
+comment0.text=\ \n\ A\ class\ producer\:\ places\ objects\ in\ a\ bounded\ buffer.\ \ \n\ Calls\:\ BoundedBuffer1\n\ \n\ Taken\ from\ _Concepts\ in\ Programming\ Languages_\ by\ John\ Mitchell\n\ Comments\ by\ Scot\ Drysdale\n\ @author\ John\ Mitchell\n\ \n\ Modified\ by\ Pete\ Fennell\ rev\ 04252019\n
+comment1.params=b
+comment1.target=Producer1(BoundedBuffer1)
+comment1.text=\n\ Create\ a\ Producer\n\ @param\ b\ the\ buffer\ the\ producer\ puts\ into\n
+comment2.params=
+comment2.target=void\ run()
+comment2.text=\n\ Run\ when\ the\ thread\ is\ started\ \n
+numComments=3

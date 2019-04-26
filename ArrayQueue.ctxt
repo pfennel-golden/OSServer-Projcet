@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=ArrayQueue
+comment0.text=An\ instance\ implements\ a\ queue\ of\ bounded\ size\ in\ an\ array
+comment1.params=size
+comment1.target=ArrayQueue(int)
+comment1.text=Constructor\:\ a\ empty\ queue\ of\ maximum\ "size".
+comment2.params=
+comment2.target=int\ size()
+comment2.text=Return\ the\ size\ of\ the\ queue.
+comment3.params=
+comment3.target=boolean\ isEmpty()
+comment3.text=isEmpty()\ method\ of\ ArrayList\ in\ java\ is\ used\ to\ check\ if\ a\ list\ is\ empty\ or\ not
+comment4.params=
+comment4.target=boolean\ isFull()
+comment4.text=isFull\ method\ of\ ArrayList\ in\ java\ is\ used\ to\ check\ if\ a\ list\ is\ full\ or\ not
+comment5.params=e
+comment5.target=void\ put(java.lang.Object)
+comment5.text=Throw\ RuntimeException\ if\ queue\ is\ full.\ Otherwise,\ add\ e\ to\ the\ queue.
+comment6.params=
+comment6.target=java.lang.Object\ peek()
+comment6.text=Throw\ a\ RuntimeException\ if\ queue\ empty.\ Otherwise,\ return\ first\ element
+comment7.params=
+comment7.target=java.lang.Object\ take()
+comment7.text=\ Throw\ a\ RuntimeException\ if\ the\ queue\ is\ empty.\nOtherwise,\ take\ head\ of\ queue\ off\ queue\ and\ return\ it.
+numComments=8
