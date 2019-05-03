@@ -42,7 +42,9 @@ public class ArrayQueue<B> {
      * Otherwise, take head of queue off queue and return it. */
     public B take() {
         if (n == 0) throw new RuntimeException("queue empty"); 
-        B e= b[h]; h= (h+1) % b.length; n= n-1; 
+        B e= b[h]; 
+        h= (h+1) % b.length; 
+        n= n-1; 
         return e;
     }
 }

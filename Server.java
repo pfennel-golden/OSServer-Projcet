@@ -1,13 +1,12 @@
-
-/**
+ /**
  * Java implementation of Server:
  * This is a threaded socket server. 
  * Two classes Server and ClientHandler
  * class Server:
  * 1. Generates ClientHandler Threads
  * 2. Generates Producer Threads
- * 3. Initiliza a BondedBuffer.
- * 4 
+ * 3. Initilizes a BondedBuffer.
+ * 
  * BoundedBuffer(ArrayQue)
  * Ref: https://www.geeksforgeeks.org/introducing-threads-socket-programming-java/
  * Pete Fennell
@@ -23,23 +22,23 @@ import java.text.*;
 import java.util.*; 
 import java.net.*; 
 
+
 // Server class 
-public class Server 
+public class Server <S>
 { 
+    static boolean monitor = true;
+    //CfigArray<S> cfa;
+    //public Server() {
+       // cfa= new CfigArray<S>(5); }
     public static void main(String[] args) throws IOException 
     { 
      int buffSize=0;
-     String CfigArray[] = new String[5];
-     
+     String config[] = new String[5];
+    
         // server is listening on port 3055 
         ServerSocket ss = new ServerSocket(3055);
         
-        for (int n=0; n < 2; n++){  //allow mutiple producers 
-            //Thread prod1 = new Producer1(buffer );
-            //int n = 1000;
-            //prod1.start();
-        }
-        boolean monitor = true;
+        
         while (monitor) 
         { 
             Socket s = null; 
@@ -62,8 +61,8 @@ public class Server
                 // Invoking the start() method 
                 GCH.start(); 
                 
+               
                 
-                monitor = false;
             } 
             catch (Exception e){ 
                 s.close(); 
@@ -72,7 +71,14 @@ public class Server
           
         } // onitor Configuration 
         
-        BoundedBuffer1 buffer = new BoundedBuffer1(50);
+        //BoundedBuffer1 buffer = new BoundedBuffer1(Integer.valueOf(config[2]));
+        BoundedBuffer1 buffer = new BoundedBuffer1(50);        
+        //for (int n=0; n < (Integer.valueOf(config[1])); n++){  //allow mutiple producers 
+            for (int n=0; n < (3); n++){  //allow mutiple producers 
+           Thread prod1 = new Producer1(buffer );
+            //int n = 1000;
+            prod1.start();
+        }
         // client request 
         while (true) 
         { 
@@ -112,7 +118,7 @@ class ClientHandler extends Thread
     final DataOutputStream dos; 
     final Socket s;
     public static  BoundedBuffer1 buffer;
-
+    
     // Constructor 
     public ClientHandler(Socket s, DataInputStream dis, DataOutputStream dos,BoundedBuffer1 buffer ) 
     { 
@@ -129,10 +135,11 @@ class ClientHandler extends Thread
     { 
         String received; 
         String toreturn; 
+        String config[] = new String[5];
         while (true) 
         { 
             try { 
-
+                //sleep(500);
                 // Ask user what he wants 
                 dos.writeUTF("The client will return values "+ 
                     "Type Exit to terminate connection."); 
@@ -194,7 +201,7 @@ class GetConfigHandler extends Thread
     public static  BoundedBuffer1 buffer;
     
     // Constructor 
-    public GetConfigHandler(Socket s, DataInputStream dis, DataOutputStream dos ) 
+    public GetConfigHandler(Socket s, DataInputStream dis, DataOutputStream dos) 
     { 
         this.s = s; 
         this.dis = dis; 
@@ -261,6 +268,7 @@ class GetConfigHandler extends Thread
 
                 // receive the answer from client 
                 received = dis.readUTF();
+                System.out.println(received);
                 
 
                 if(received.equals("Exit")) 
@@ -274,23 +282,7 @@ class GetConfigHandler extends Thread
 
                 // write on output stream based on the 
                 // answer from the client 
-                switch (received) { 
 
-                    case "prodNum" : // Read buffer
-                    System.out.println(received);
-                    received=String.valueOf(buffer.consume());
-                    dos.writeUTF(received); 
-                    break; 
-                    //Client upload to server
-                    case "buffSize" : 
-                    
-                    //(s +received);
-                    break; 
-                    //for client for client that more funtionality
-                    default: 
-                    dos.writeUTF("Invalid input"); 
-                    break; 
-                } 
 
             } catch (IOException e) { 
                 e.printStackTrace(); 
@@ -306,5 +298,6 @@ class GetConfigHandler extends Thread
         }catch(IOException e){ 
             e.printStackTrace(); 
         } 
+        Server.monitor = false;
     } 
 } 

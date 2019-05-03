@@ -1,3 +1,5 @@
+package ServerProject_G;
+
 /**
  * Write a description of class ClinetMonitor here.
  *
@@ -29,7 +31,7 @@ public class ClinetMonitor
      * provides some results to the user.  
      */
     public static String setSleep()
-    { Scanner scn = new Scanner(System.in); 
+    {   Scanner scn = new Scanner(System.in); 
         String tosend = " ";
         System.out.println(" Enter thread sleep value:  ");
         tosend = scn.nextLine();
@@ -102,11 +104,16 @@ public class ClinetMonitor
             boolean run = true;
             while (run) 
             { // The thread sleep added control read t
-                try{Thread.sleep(2000);}catch(InterruptedException e){System.out.println(e);}  
+                
                 System.out.println("Buffer size: integer value "); 
                 //String tosend = scn.nextLine();
                 for (int i =0; i<4; i++){
                 dos.writeUTF(config[i]); 
+                try{Thread.sleep(200);}catch(InterruptedException e){System.out.println(e);}  
+                if (i== 3){
+                    tosend ="Exit";
+                    dos.writeUTF(tosend); 
+                }
             }
                 // Turned off for testing system "infnit loop"
                 //If client sends exit,close this connection 
@@ -120,8 +127,8 @@ public class ClinetMonitor
                 } 
 
                 // printing date or time as requested by client 
-                String received = dis.readUTF(); 
-                System.out.println(received); 
+                //String received = dis.readUTF(); 
+                //System.out.println(received); 
             } 
 
             // closing resources 
@@ -131,6 +138,7 @@ public class ClinetMonitor
         }catch(Exception e){ 
             e.printStackTrace(); 
         } 
+        
     } 
 } 
 

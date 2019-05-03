@@ -1,3 +1,5 @@
+package ServerProject_G;
+
 
 /**
  * Write a description of class CfigArray here.
@@ -5,18 +7,15 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class CfigArray
+public class CfigArray<S>
 {
-    // instance variables - replace the example below with your own
-    private String CfigArray[] cfa; String cf;
-    /**
-     * Constructor for objects of class CfigArray
-     */
-    public CfigArray()
-    {
-       cfa = new CfigArray[5];
-    }
-    
+    private String CfigArray[], cfa;
+        private S[] b; private int n; private int h;
+    // The n elements of the queue
+    /** Constructor: a empty queue of maximum "size". */ 
+    public CfigArray(int size) {
+        b = (S[])new Object[size]; }
+ 
 
     /**
      * An example of a method - replace this comment with your own
@@ -25,14 +24,14 @@ public class CfigArray
      * @return    the sum of x and y
      */
    
-    /** Put object into the bounded buffer */ 
+    /** Put object*/ 
     public  void produce() {
               }
 
-    /** Remove first object from bounded buffer and return it. */ 
+    /** Remove object */ 
     public String consume(int n) {
-
-        cf = cfa [n]; 
+        String cf;
+        cfa = b [n]; 
         return cf;
     } 
 }
